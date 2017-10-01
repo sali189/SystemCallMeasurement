@@ -1,9 +1,14 @@
-output: main.o
-	g++ main.o -o experiment
+CC=/usr/bin/g++
+CFLAGS= -g -Wall -I. -std=c++14
+LINKFLAGS= -g -Wall
 
-main.o: main.cpp
-	g++ -c main.cpp
+experiment: main.o 
+	$(CC) $(LINKFLAGS) -o experiment main.o
+
+main.o: main.cpp 
+	$(CC) $(CFLAGS) -c main.cpp -o main.o
 	
 clean:
 	rm *.o experiment
-	rm *.txt file
+	rm file.txt
+
