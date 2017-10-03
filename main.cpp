@@ -28,7 +28,7 @@ double timespec_to_ms(struct timespec *ts){
 }
 int sysWrites(int bufferSize, long numberOfWrites, const char *FILE) {
 	char buffer[bufferSize];
-	int fileHandle = syscall(SYS_open, FILE , O_CREAT|O_TRUNC|O_RDONLY);
+	int fileHandle = syscall(SYS_open, FILE , O_CREAT|O_TRUNC|O_RDWR);
 	for(int i = 0; i < numberOfWrites; i++) {
 		syscall(SYS_write, fileHandle, &buffer[0], bufferSize);
 	}
@@ -37,7 +37,7 @@ int sysWrites(int bufferSize, long numberOfWrites, const char *FILE) {
 }
 int sysReads(int bufferSize, long numberOfReads){
 	char buffer[bufferSize];
-	int fileHandle = syscall(SYS_open, "file.txt", O_CREAT|O_TRUNC|O_RDONLY);
+	int fileHandle = syscall(SYS_open, "file.txt", O_CREAT|O_TRUNC|O_RDWR);
 	for(auto i = 0; i<numberOfReads; i++){
 		syscall(SYS_read, fileHandle, &buffer[0], bufferSize);
 	}
