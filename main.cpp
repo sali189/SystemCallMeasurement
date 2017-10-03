@@ -3,10 +3,6 @@
  *
  *  Created on: Sep 25, 2017
  *      Author: zain
- *
- *      https://github.com/surabhiiyer/UnixSystemProgramming/blob/master/MemoryManagement/measureSystemCall.c
- *      http://www.cplusplus.com/articles/DEN36Up4/
- *      http://www.boost.org/doc/libs/1_65_1/doc/html/program_options/tutorial.html
  */
 #include <stdio.h>
 #include <string>
