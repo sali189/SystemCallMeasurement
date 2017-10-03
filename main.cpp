@@ -24,7 +24,7 @@ using namespace std;
 
 
 double timespec_to_ms(struct timespec *ts){
-	return ts -> tv_sec*1000.0 + ts->tv_nsec/1000000.0;
+	return ts -> tv_sec + ts->tv_nsec/1000000000.0;
 }
 int sysWrites(int bufferSize, long numberOfWrites, const char *FILE) {
 	char buffer[bufferSize];
