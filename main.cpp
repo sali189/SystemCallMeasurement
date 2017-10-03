@@ -56,16 +56,16 @@ int main(int argc, char* argv[]){
 	for(index = 0; index<argc; index++){
 		if(strncmp(argv[index], "--write_count", 13)==0){
 			printf("main(): Write_count was called\n");
-			clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &start_time);
+			clock_gettime(CLOCK_REALTIME, &start_time);
 				sysWrites(1000000, 10000000, "file.txt");
-				clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &end_time);
+				clock_gettime(CLOCK_REALTIME, &end_time);
 				printf("Program took %f seconds to finish \n",timespec_to_ms(&end_time)-timespec_to_ms(&start_time));
 
 		} else if(strncmp(argv[index],"--read_count", 12)==0){
 			printf("main(): Read_count was called\n");
-			clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &start_time);
+			clock_gettime(CLOCK_REALTIME, &start_time);
 			sysReads(100000,1000000);
-			clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &end_time);
+			clock_gettime(CLOCK_REALTIME, &end_time);
 			printf("Program took %f seconds to finish \n",timespec_to_ms(&end_time)-timespec_to_ms(&start_time));
 			}
 		}
