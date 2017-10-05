@@ -26,7 +26,7 @@ void sysWrites(int bufferSize, long numberOfWrites, const char *FILE) {
 	char buffer[bufferSize];
 	int fileHandle = syscall(SYS_open, FILE , O_CREAT|O_TRUNC|O_RDWR);
 	for(int i = 0; i < numberOfWrites; i++) {
-		syscall(SYS_write, fileHandle, &buffer[0], bufferSize);
+		syscall(SYS_write, fileHandle, &buffer[i], bufferSize);
 	}
 	 syscall(SYS_close, fileHandle);
 }
@@ -34,7 +34,7 @@ void sysReads(int bufferSize, long numberOfReads, const char *FILE){
 	char buffer[bufferSize];
 	int fileHandle = syscall(SYS_open, FILE, O_CREAT|O_TRUNC|O_RDWR);
 	for(auto i = 0; i<numberOfReads; i++){
-		syscall(SYS_read, fileHandle, &buffer[0], bufferSize);
+		syscall(SYS_read, fileHandle, &buffer[i], bufferSize);
 	}
 	syscall(SYS_close, fileHandle);
 }
