@@ -10,5 +10,5 @@ main.o: main.cpp
 	
 clean:
 	rm *.o experiment
-	rm file.txt
+	rm *.txt
 
